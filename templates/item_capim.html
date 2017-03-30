@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %} {{ capim.nome_popular }} | {{ block.super }} {% endblock titulo %}
+
+{% block container %}
+
+<main class="row bg-gray">
+	<div class="bg-white
+				col-xs-12
+				col-sm-8 col-sm-offset-2
+				col-md-6 col-md-offset-3
+				col-lg-6 col-lg-offset-3
+				">
+
+		<h1 class="text-info">{{ capim.nome_popular }}</h1>
+		<hr>
+
+		<article class="row">
+			{% if capim.imagem %}
+			<div class="img-banner
+						col-xs-12
+						col-sm-12
+						col-md-12
+						col-lg-12"
+				style="background-image: url({{ capim.imagem.url }});
+						background-repeat: no-repeat;
+						background-size: cover;"></div>
+
+			{% endif %}
+
+			<section class="col-xs-12
+						   col-sm-12
+						   col-md-12
+						   col-lg-12">
+				<hr>
+				<b class="text-info">Nome científico: </b><span>{{ capim.nome_cientifico }}</span>
+				<hr>
+				<b class="text-info">Descrição: </b><span>{{ capim.descricao|linebreaks }}</span>
+				<hr>
+				<b class="text-info">Responsável: </b><span>{{ capim.responsavel }}</span>
+				<hr>
+				<b class="text-info">Fonte: </b><span>{{ capim.fonte }}</span>
+				<hr>
+				<a href="/lista"><button class="btn btn-primary" type="button" name="button">Voltar</button></a>
+			</section>
+
+		</article>
+		<hr>
+	</div>
+</main>
+
+
+{% endblock container %}
